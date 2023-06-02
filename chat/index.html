@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <script src="https://app.five9.com/consoles/SocialWidget/five9-social-widget.min.js"></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+  </head>
+  <body>
+    <script>
+      const widget = Five9SocialWidget;
+      widget.addWidget({
+        type: 'chat',
+        rootUrl: 'https://app.five9.com/consoles/',
+        tenant: 'Five9 TAM DEMO - Steve Larsen',
+        title: 'TAM - DEMO Chat',
+        profiles: ['Chat Support'],
+        showProfiles: true,
+        useBusinessHours: true,
+        theme: 'default-theme.css',
+        fields: {
+          name: {
+            value: '',
+            show: true,
+            label: 'Name',
+            required: true,
+          },
+          Customer_name: {
+            value: '',
+            show: true,
+            label: ' Customer Name',
+            required: true,
+          },
+          state: {
+            value: '',
+            show: true,
+            label: 'State',
+            required: false,
+          },
+          email: {
+            value: '',
+            show: true,
+            label: ' Agent Email',
+            required: true,
+          },
+        },
+      });
+    </script>
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="./index3.js"></script>
+  </body>
+</html>
