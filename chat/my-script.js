@@ -34,7 +34,7 @@ const endLunch = new Date(
   now.getMonth(),
   now.getDate(),
   15,
-  40,
+  50,
   0
 );
 
@@ -51,20 +51,24 @@ const lunch = `${startLunch.toLocaleTimeString([], {
 console.log(now);
 console.log(lunch);
 
+// Function to hide the header
 const hideHeader = () => {
   $('.five9-header').hide();
   localStorage.setItem('headerHidden', 'true');
 };
 
+// Function to show the header
 const showHeader = () => {
   $('.five9-header').show();
   localStorage.setItem('headerHidden', 'false');
 };
 
+// Function to check if the header is hidden
 const isHeaderHidden = () => {
   return localStorage.getItem('headerHidden') === 'true';
 };
 
+// Function to refresh the page at a specific time
 function refreshAt(time) {
   const now = new Date();
   const target = new Date();
@@ -89,7 +93,7 @@ function refreshAt(time) {
     now.getMonth(),
     now.getDate(),
     15,
-    40,
+    50,
     0
   );
 
@@ -98,10 +102,12 @@ function refreshAt(time) {
     location.reload();
   }, timeUntilRefresh);
 
+  // Remove the hideHeader function from the visibilitychange event listener
   window.addEventListener('beforeunload', () => {
     window.removeEventListener('visibilitychange', hideHeader);
   });
 
+  // Refresh every 60 seconds until stepKey changes or lunch hours end
   const interval = setInterval(function () {
     const now = new Date(); // Update the value of now inside setInterval
     const stepKey = parsedItem.step; // Retrieve the updated value of stepKey
@@ -129,6 +135,7 @@ function refreshAt(time) {
   }, 60000); // Refresh every 60 seconds
 }
 
+// Event listener when the window loads
 window.addEventListener('load', () => {
   if (isHeaderHidden()) {
     hideHeader();
@@ -137,6 +144,7 @@ window.addEventListener('load', () => {
   }
 });
 
+// Event listener before the window unloads
 window.addEventListener('beforeunload', () => {
   if (isHeaderHidden()) {
     window.addEventListener('DOMContentLoaded', hideHeader);
@@ -145,6 +153,7 @@ window.addEventListener('beforeunload', () => {
   }
 });
 
+// Refresh the page at a specific time
 refreshAt({ hour: 15, minute: 0, second: 5 });
-refreshAt({ hour: 15, minute: 40, second: 5 });
+refreshAt({ hour: 15, minute: 50, second: 5 });
 
