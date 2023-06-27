@@ -8,7 +8,7 @@ const startLunch = new Date(
   now.getDate(),
   11,
   32,
-  00
+  0
 );
 
 // create a new Date object for the end of lunch
@@ -18,7 +18,7 @@ const endLunch = new Date(
   now.getDate(),
   11,
   33,
-  00
+  0
 );
 
 // format the lunch time range as a string
@@ -67,5 +67,5 @@ function refreshAt(time) {
 }
 
 // Call the refreshAt function with the desired time (24-hour format)
-refreshAt({ hour: 11, minute: 32, second: 05 });
-refreshAt({ hour: 11, minute: 33, second: 05 });
+refreshAt({ hour: 11, minute: 32, second: 5 });
+refreshAt({ hour: 11, minute: 33, second: 5 });
